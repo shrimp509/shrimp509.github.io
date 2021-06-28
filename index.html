@@ -7,7 +7,6 @@
       window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag('js', new Date());
-
       gtag('config', 'UA-168666424-1');
     </script>
 
@@ -17,12 +16,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700,800|Playfair+Display:,300, 400, 700" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
     <link rel="stylesheet" href="https://imrongson.com/css/bootstrap.css">
     <link rel="stylesheet" href="https://imrongson.com/css/animate.css">
     <link rel="stylesheet" href="https://imrongson.com/css/owl.carousel.min.css">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/mediaelement@4.2.7/build/mediaelementplayer.min.css">
-
     <link rel="stylesheet" href="https://imrongson.com/fonts/ionicons/css/ionicons.min.css">
     <link rel="stylesheet" href="https://imrongson.com/fonts/fontawesome/css/font-awesome.min.css">
 
@@ -81,6 +78,10 @@
     <!-- loader -->
     <div id="loader" class="show fullscreen"><svg class="circular" width="48px" height="48px"><circle class="path-bg" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke="#eeeeee"/><circle class="path" cx="24" cy="24" r="22" fill="none" stroke-width="4" stroke-miterlimit="10" stroke="#f4b214"/></svg></div>
 
+    <div id="hello_world_container">
+      <h1 id="hello_world">Hello World!</h1>
+    </div>
+
     <script src="https://imrongson.com/js/jquery-3.2.1.min.js"></script>
     <script src="https://imrongson.com/js/popper.min.js"></script>
     <script src="https://imrongson.com/js/bootstrap.min.js"></script>
@@ -88,6 +89,47 @@
     <script src="https://imrongson.com/js/jquery.waypoints.min.js"></script>
     <script src="https://imrongson.com/js/jquery.countdown.min.js"></script>
     <script src="https://imrongson.com/js/main.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+    <script type="text/javascript">
+      var textWrapper = document.querySelector('#hello_world_container');
+      setTimeout(function() {
+        anime.timeline({
+          complete: function() {
+            console.log('in complete')
+            var container = document.getElementById('hello_world_container')
+            container.style.display = 'none'
+          }
+        }).add({
+          targets: '#hello_world_container',
+          duration: 500,
+          easing: "linear",
+          opacity: [1, 0]
+        })
+      }, 1500)
+    </script>
 
+    <style media="screen">
+      #hello_world_container {
+        height: 95vh;
+        position: relative;
+      }
+
+      #hello_world {
+        background-color: white;
+        margin: auto;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: monospace;
+        position: absolute;
+        right: 0;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        min-height: 110%;
+        min-width: 100%;
+        z-index: 100;
+      }
+    </style>
   </body>
 </html>
